@@ -1,0 +1,7 @@
+Options +Indexes
+
+IndexIgnore .htaccess */.??* *~ *# 
+
+IndexOptions FancyIndexing NameWidth=*
+HeaderName kesy.reth.sch.gr.txt
+ReadmeName kesy.reth.sch.gr1.txt

